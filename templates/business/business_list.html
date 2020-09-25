@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div>
+<table class="table table-stripped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Business Id</th>
+        <th>Business Name</th>
+        <th>Business Image</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for emp in business %}
+    <tr>
+        <td>{{emp.business_id}}</td>
+        <td>{{emp.business_name}}</td>
+        <td><img src="{{emp.business_image.url}}" alt="Not Found" width="80px" height="80px"></td>
+        <td>
+            <a href="/{{emp.id}}/edit"><span class="glyphicon glyphicon-pencil">Edit </span> </a>
+            <a href="/{{emp.id}}/delete">DELETE</a>
+            <a href="/{{emp.id}}/employees">VIEW_EMPLOYEES</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<center><a href="/create" class="btn btn-primary">Add New Business</a> </center>
+</div>
+
+<div class="container mt-4">
+    <h4 class="display-4">Business Profit of the month - {{total_profit_month}}</h4>
+    <h4 class="display-5">It's depend on employee epense</h4>
+</div>
+
+{% endblock %}

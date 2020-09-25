@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            {% load crispy_forms_tags %}
+            <form method="POST">
+                {% csrf_token %}
+                <center>
+                    <h3>Enter Your Login Details</h3>
+                </center>
+                {{ form|crispy }}
+                <center>
+                    <input type="submit" value="submit" class="btn btn-success">
+                    <input type="reset" value="clear" class="btn btn-danger">
+                </center>
+                <h5><a href="/employee/register">Register New User</a> </h5>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

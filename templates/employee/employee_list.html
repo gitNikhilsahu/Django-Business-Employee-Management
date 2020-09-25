@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div>
+<table class="table table-stripped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Business Name</th>
+        <th>Employee Id</th>
+        <th>Employee User Name</th>
+        <th>Employee Salary</th>
+        <th>Product Details</th>
+        <th>Employee Image</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for emp in employee %}
+    <tr>
+        <td>{{emp.bussiness.business_name}}</td>
+        <td>{{emp.employee_id}}</td>
+        <td>{{emp.user.username}}</td>
+        <td>{{emp.employee_sal}}</td>
+        <td>{{emp.pruduct_details}}</td>
+        <td><img src="{{emp.user_image.url}}" alt="Not Found" width="80px" height="80px"></td>
+        <td>
+            <a href="/employee/{{emp.user.id}}/edit"><span class="glyphicon glyphicon-pencil">Edit </span> </a>
+            <a href="/employee/{{emp.user.id}}/delete">DELETE</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

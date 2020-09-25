@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col md-6">
+            {% load crispy_forms_tags %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <center>
+                    <h3>Enter Your Details</h3>
+                </center>
+                {{ form|crispy }}
+                <center>
+                    <input type="submit" value="submit" class="btn btn-success">
+                    <input type="reset" value="clear" class="btn btn-danger">
+                </center>
+                <h4><a href="/">Show List of Business</a> </h4>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
